@@ -1,4 +1,5 @@
 project('tracy', ['cpp'], version: '0.10.0')
+soversion = '0.10.0'
 
 tracy_compile_args = []
 
@@ -172,6 +173,7 @@ if tracy_shared_libs
     dependencies        : [ threads_dep ],
     include_directories : tracy_public_include_dirs,
     override_options    : override_options,
+    soversion           : soversion,
     install             : true)
 else
   tracy = static_library('tracy', tracy_src, tracy_header_files,
