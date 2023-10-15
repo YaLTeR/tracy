@@ -1,4 +1,5 @@
 project('tracy', ['cpp'], version: '0.10.0', meson_version: '>=0.63.0')
+soversion = '0.10.0'
 
 # internal compiler flags
 tracy_compile_args = []
@@ -188,6 +189,7 @@ tracy = library('tracy', tracy_src, tracy_header_files,
     include_directories : tracy_public_include_dirs,
     cpp_args            : tracy_compile_args,
     override_options    : override_options,
+    soversion           : soversion,
     install             : true)
 
 install_headers(includes, subdir : 'tracy')
