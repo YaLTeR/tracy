@@ -94,6 +94,14 @@ if get_option('tracy_no_crash_handler')
   tracy_common_args += ['-DTRACY_NO_CRASH_HANDLER']
 endif
 
+if get_option('tracy_symbol_offline_resolve')
+  tracy_common_args += ['-DTRACY_SYMBOL_OFFLINE_RESOLVE']
+endif
+
+if get_option('tracy_enable_image_cache')
+  tracy_common_args += ['-DTRACY_ENABLE_IMAGE_CACHE']
+endif
+
 tracy_shared_libs = get_option('default_library') == 'shared'
 if not tracy_shared_libs and get_option('tracy_shared_libs')
   warning('tracy_shared_libs is set to true, but default_library is set to static. Building static library.')
